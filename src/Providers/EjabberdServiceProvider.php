@@ -16,7 +16,9 @@ class EjabberdServiceProvider extends ServiceProvider
 {
     public function register()
     {
-
+        $this->app->bind(Ejabberd::class, function ($app) {
+            return new Ejabberd();
+        });
     }
 
     public function provides()
