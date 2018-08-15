@@ -10,6 +10,8 @@ namespace Ejabberd;
 
 
 use Ejabberd\Commands\Contracts\IEjabberdCommand;
+use Ejabberd\Commands\CreateUser;
+use Ejabberd\Commands\SendMessage;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
@@ -83,5 +85,23 @@ class Ejabberd
     public function executeQueue(IEjabberdCommand $command)
     {
 
+    }
+
+    /**
+     * @param CreateUser $createUser
+     * @return null|\Psr\Http\Message\StreamInterface
+     */
+    public function createUser(CreateUser $createUser)
+    {
+        return $this->execute($createUser);
+    }
+
+    /**
+     * @param SendMessage $sendMessage
+     * @return null|\Psr\Http\Message\StreamInterface
+     */
+    public function sendMessage(SendMessage $sendMessage)
+    {
+        return $this->execute($sendMessage);
     }
 }
