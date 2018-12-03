@@ -14,6 +14,7 @@ use Ejabberd\Commands\Contracts\IEjabberdCommand;
 class GetLastActivity implements IEjabberdCommand
 {
     private $user;
+
     private $host;
 
     public function __construct($user, $host)
@@ -31,8 +32,8 @@ class GetLastActivity implements IEjabberdCommand
     public function getCommandData()
     {
         return [
-            'user' => '',
-            'host' => ''
+            'user' => $this->user,
+            'host' => $this->host
         ];
     }
 }

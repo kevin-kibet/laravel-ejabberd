@@ -12,27 +12,30 @@ namespace Ejabberd\Commands;
 
 use Ejabberd\Commands\Contracts\IEjabberdCommand;
 
-class CheckAccount implements IEjabberdCommand
+class CheckPassword implements IEjabberdCommand
 {
     private $user;
     private $host;
+    private $password;
 
-    public function __construct($user, $host)
+    public function __construct($user, $host, $password)
     {
         $this->user = $user;
         $this->host = $host;
+        $this->password = $password;
     }
 
     function getCommandName()
     {
-        return 'check_account';
+        return 'check_password';
     }
 
     function getCommandData()
     {
         return [
             'user' => $this->user,
-            'host' => $this->host
+            'host' => $this->host,
+            'password' => $this->password
         ];
     }
 }

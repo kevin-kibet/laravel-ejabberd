@@ -32,7 +32,7 @@ class CreateRoom implements IEjabberdCommand
 
     public function getCommandName()
     {
-        return 'create_room';
+        return count($this->options) <= 0 ? 'create_room' : 'create_room_with_opts';
     }
 
     public function getCommandData()
@@ -55,11 +55,14 @@ class CreateRoom implements IEjabberdCommand
          * public_list, moderated, allow_user_invites, allow_query_users, pubsub, allow_private_messages_from_visitors
          * mam, allow_subscription
          */
-        return [
+        $data = [
             'name' => $this->name,
             'service' => $this->service,
-            'host' => $this->host,
-            'options' => $this->options
+            'host' => $this->host
         ];
+        if (count($this->options) > 0) {
+            $data['options'] = $this->options;
+        }
+        return $data;
     }
 }

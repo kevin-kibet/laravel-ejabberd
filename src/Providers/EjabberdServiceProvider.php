@@ -38,6 +38,6 @@ class EjabberdServiceProvider extends ServiceProvider
 
     private function getConfigPath()
     {
-        return __DIR__ . '/../config/ejabberd.php';
+        return __DIR__ . '/../../config/ejabberd.php';
     }
 }

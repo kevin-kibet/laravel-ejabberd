@@ -3,36 +3,35 @@
  * Created by PhpStorm.
  * User: kibet
  * Date: 7/2/2018
- * Time: 12:08 PM
+ * Time: 12:06 PM
  */
-
 
 namespace Ejabberd\Commands;
 
 
 use Ejabberd\Commands\Contracts\IEjabberdCommand;
 
-class CheckAccount implements IEjabberdCommand
+class GetRoster implements IEjabberdCommand
 {
     private $user;
-    private $host;
+    private $server;
 
-    public function __construct($user, $host)
+    public function __construct($user, $server)
     {
         $this->user = $user;
-        $this->host = $host;
+        $this->server = $server;
     }
 
-    function getCommandName()
+    public function getCommandName()
     {
-        return 'check_account';
+        return 'get_roster';
     }
 
-    function getCommandData()
+    public function getCommandData()
     {
         return [
             'user' => $this->user,
-            'host' => $this->host
+            'server' => $this->server,
         ];
     }
 }

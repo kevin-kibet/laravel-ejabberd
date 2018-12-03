@@ -8,10 +8,10 @@
 
 namespace Ejabberd;
 
-
 use Ejabberd\Commands\Contracts\IEjabberdCommand;
 use Ejabberd\Commands\CreateUser;
 use Ejabberd\Commands\SendMessage;
+use Ejabberd\Exceptions\EjabberdException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
@@ -44,6 +44,7 @@ class Ejabberd
     /**
      * @param IEjabberdCommand $command
      * @return null|\Psr\Http\Message\StreamInterface
+     * @throws EjabberdException
      */
     public function execute(IEjabberdCommand $command)
     {
@@ -70,12 +71,12 @@ class Ejabberd
             if ($this->debug) {
                 Log::info("Error occurred while executing the command " . $command->getCommandName() . ".");
             }
-            return null;
+            throw EjabberdException::networkException($e);
         } catch (\Exception $e) {
             if ($this->debug) {
                 Log::info("Error occurred while executing the command " . $command->getCommandName() . ".");
             }
-            return null;
+            throw EjabberdException::generalException($e);
         }
     }
 
@@ -84,12 +85,12 @@ class Ejabberd
      */
     public function executeQueue(IEjabberdCommand $command)
     {
-
     }
 
     /**
      * @param CreateUser $createUser
      * @return null|\Psr\Http\Message\StreamInterface
+     * @throws EjabberdException
      */
     public function createUser(CreateUser $createUser)
     {
@@ -99,6 +100,7 @@ class Ejabberd
     /**
      * @param SendMessage $sendMessage
      * @return null|\Psr\Http\Message\StreamInterface
+     * @throws EjabberdException
      */
     public function sendMessage(SendMessage $sendMessage)
     {
