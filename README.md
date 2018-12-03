@@ -48,12 +48,12 @@ $app->register(Ejabberd\Providers\EjabberdServiceProvider::class);
 Register a new user to your xmpp server
 ```php
 $create_user = new CreateUser($user, $password, $host);
-$response = Ejabbered::createUser($create_user);
+$response = EjabberedFacade::createUser($create_user);
 ```
 
 #### Send message
 Send message to a user or conference
 ```php
 $send_message = new SendMessage($type, $from, $to, $subject, $body);
-$response = Ejabbered::sendMessage($send_message);
+$response = EjabberedFacade::sendMessage($send_message);
 ```
