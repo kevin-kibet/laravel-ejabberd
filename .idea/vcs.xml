@@ -2,5 +2,16 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/doctrine/inflector" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/guzzlehttp/promises" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/guzzlehttp/psr7" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/illuminate/contracts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/illuminate/support" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/psr/container" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/psr/http-message" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/psr/simple-cache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/symfony/translation" vcs="Git" />
   </component>
 </project>
